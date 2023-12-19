@@ -8,23 +8,28 @@ import {
   RiSearch2Line,
   RiArrowDownSLine,
   RiDeleteBin5Line,
-} from "react-icons/ri";
+}
+from "react-icons/ri";
 import { Sindebar } from "./components/shared/Sindebar";
+import Card from "./components/shared/Card";
+
+
 function App() {
   const [showMenu, setShowMenu] = useState(false);
   const [showOrder, setShowOrder] = useState(false);
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
-    setShowOrder(false)
+    setShowOrder(false);
   };
   const toggleOrders = () => {
-    setShowOrder(!showOrder)
-    setShowMenu(false)
-  }
+    setShowOrder(!showOrder);
+    setShowMenu(false);
+  };
   return (
-    <div className="bg-[#262837] w-full min-h-screen">
+    <div className="bg-[#262837] w-full min-h-screen ">
       <Sindebar showMenu={showMenu} />
+      <Card></Card>
       {/* menu movil */}
       <nav className="bg-[#1F1D2B] lg:hidden fixed w-full bottom-0 left-0 text-4xl text-gray-400 py-2 px-8 flex items-center justify-between rounded-tl-xl rounded-tr-xl">
         <button>
@@ -34,14 +39,14 @@ function App() {
           <RiPieChartLine className="p-2"></RiPieChartLine>
         </button>
         <button onClick={toggleOrders}>
-          <RiLightbulbFlashLine className="p-2" ></RiLightbulbFlashLine>
+          <RiLightbulbFlashLine className="p-2"></RiLightbulbFlashLine>
         </button>
         <button onClick={toggleMenu} className="text-white  p-2">
           {showMenu ? <RiCloseLine /> : <RiMenuLine />}
         </button>
       </nav>
-      <main className="lg:pl-32 grid grid-cols-1 lg:grid-cols-8 p-4 pb-20">
-        <div className="lg:col-span-6 md:p-8">
+      <main className="lg:pl-32 pr-96 pb-20">
+        <div className=" md:p-8 p-4">
           {/* Header */}
           <header>
             {/* Title and search */}
@@ -152,175 +157,7 @@ function App() {
           </div>
         </div>
 
-        <div className={`bg-[#1F1D2B] lg:col-span-2 fixed lg:static top-0 w-full h-full transition-all ${showOrder ? "right-0" : "-right-full"}`}>
-          {/* orders */}
 
-
-
-          <div className="relative pt-16 text-gray-300 p-8 h-full  pb-96 ">
-            <RiCloseLine onClick={toggleOrders} className="absolute left-4 top-4 p-3 box-content text-gray-300 bg-[#262837] rounded-full text-xl" />
-            <h1 className="text-2xl my-4">Orders #123242</h1>
-            {/*  pills*/}
-            <div className=" flex items-center gap-4 flex-wrap mb-8">
-              <button className="bg-[#ec7c6a] text-white py-2 px-4 rounded-xl">
-                Dine In
-              </button>
-              <button className=" text-[#ec7c6a] py-2 px-4 rounded-xl border border-gray-500">
-                To Go
-              </button>
-              <button className=" text-[#ec7c6a] py-2 px-4 rounded-xl border border-gray-500">
-                Delivery
-              </button>
-            </div>
-
-            {/* Car */}
-            <div>
-              <div className="grid grid-cols-6 mb-4 p-4">
-                <h5 className="col-span-4">Item</h5>
-                <h5>Qty</h5>
-                <h5>Price</h5>
-              </div>
-              {/* products */}
-              <div className="h-[400px] md:h-[700px] lg:h-[540px] overflow-scroll ">
-                {/* product */}
-                <div className="bg-[#262837] p-4 rounded-xl mb-4">
-                  <div className="grid grid-cols-6 mb-2">
-                    {/* Product description */}
-                    <div className="col-span-4 flex items-center gap-3">
-                      <img
-                        src="plato1.png"
-                        alt=""
-                        className="w-16 h-16 object-cover"
-                      />
-                      <div>
-                        <h5 className="text-sm">Spaicy seaso...</h5>
-                        <p className="text-xs text-gray-500">$2.29</p>
-                      </div>
-                    </div>
-                    {/* Qty */}
-                    <div className="text-center">
-                      <span>2</span>
-                    </div>
-                    {/* Prince */}
-                    <div>
-                      <span>$4.58</span>
-                    </div>
-                  </div>
-                  {/* Note */}
-                  <div className="grid grid-cols-6 items-center gap-2">
-                    <form className="col-span-5">
-                      <input
-                        type="text"
-                        className="bg-[#1F1D2B] py-2 px-4 rounded-lg outline-none"
-                        placeholder="Order note..."
-                      />
-                    </form>
-                    <div className="col-span-1">
-                      <button className="border border-red-500 p-2 rounded-lg">
-                        <RiDeleteBin5Line className="text-red-500" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div className="bg-[#262837] p-4 rounded-xl mb-4">
-                  <div className="grid grid-cols-6 mb-2">
-                    {/* Product description */}
-                    <div className="col-span-4 flex items-center gap-3">
-                      <img
-                        src="plato1.png"
-                        alt=""
-                        className="w-16 h-16 object-cover"
-                      />
-                      <div>
-                        <h5 className="text-sm">Spaicy seaso...</h5>
-                        <p className="text-xs text-gray-500">$2.29</p>
-                      </div>
-                    </div>
-                    {/* Qty */}
-                    <div className="text-center">
-                      <span>2</span>
-                    </div>
-                    {/* Prince */}
-                    <div>
-                      <span>$4.58</span>
-                    </div>
-                  </div>
-                  {/* Note */}
-                  <div className="grid grid-cols-6 items-center gap-2">
-                    <form className="col-span-5">
-                      <input
-                        type="text"
-                        className="bg-[#1F1D2B] py-2 px-4 rounded-lg outline-none"
-                        placeholder="Order note..."
-                      />
-                    </form>
-                    <div className="col-span-1">
-                      <button className="border border-red-500 p-2 rounded-lg">
-                        <RiDeleteBin5Line className="text-red-500" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div className="bg-[#262837] p-4 rounded-xl mb-4">
-                  <div className="grid grid-cols-6 mb-2">
-                    {/* Product description */}
-                    <div className="col-span-4 flex items-center gap-3">
-                      <img
-                        src="plato1.png"
-                        alt=""
-                        className="w-16 h-16 object-cover"
-                      />
-                      <div>
-                        <h5 className="text-sm">Spaicy seaso...</h5>
-                        <p className="text-xs text-gray-500">$2.29</p>
-                      </div>
-                    </div>
-                    {/* Qty */}
-                    <div className="text-center">
-                      <span>2</span>
-                    </div>
-                    {/* Prince */}
-                    <div>
-                      <span>$4.58</span>
-                    </div>
-                  </div>
-                  {/* Note */}
-                  <div className="grid grid-cols-6 items-center gap-2">
-                    <form className="col-span-5">
-                      <input
-                        type="text"
-                        className="bg-[#1F1D2B] py-2 px-4 rounded-lg outline-none"
-                        placeholder="Order note..."
-                      />
-                    </form>
-                    <div className="col-span-1">
-                      <button className="border border-red-500 p-2 rounded-lg">
-                        <RiDeleteBin5Line className="text-red-500" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* submit payment */}
-            <div className="bg-[#262837] absolute bottom-0 left-0 p-4 w-full">
-              <div className="flex items-center justify-between mb-4">
-                <span className="text-gray-400"> Discount</span>
-                <span>$0</span>
-              </div>
-              <div className="flex items-center justify-between mb-6">
-                <span className="text-gray-400">Subtotal</span>
-                <span>$201.03</span>
-              </div>
-              <div>
-                <button className="bg-[#ec7c6a] w-full py-2 px-4 rounded-lg">
-                  Continue to payment
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
       </main>
     </div>
   );
